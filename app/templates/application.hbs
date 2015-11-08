@@ -1,0 +1,67 @@
+<!-- AppTemplate -->
+
+<!-- Header -->
+<header class="container-fluid">
+    
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-9 col-no-gutters-left">
+        {{#link-to 'index'}}<img src="logo-agroemporium.png" id="logo"/>{{/link-to}}
+    </div>
+    
+    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        <button type="button" class="navbar-toggle" data-toggle="collapse-side" data-target-1=".side-collapse" data-target-2="#outlet">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    
+</header>
+
+<div class="container-fluid col-no-gutters">
+    
+    <div class="row row-no-gutters">
+        <!-- Navigation -->
+        <aside class="col-lg-3 col-md-3 col-sm-4 col-xs-12 col-no-gutters side-collapse in">
+            <nav role="navigation" class="collapse navbar-collapse col-no-gutters" id="mainNavbar">
+                <ul class="nav navbar-nav">
+                    <li>{{#link-to 'profile'}}Profile{{/link-to}}</li>
+                    <li>{{#link-to 'offer'}}New offer{{/link-to}}</li>
+                    <li>{{#link-to 'index'}}My offers{{/link-to}}</li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- Main -->
+        <section data-out-class="col-lg-9 col-md-9 col-sm-8" class="col-xs-12" id="outlet">
+            {{outlet}}
+        </section>
+    
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function() {   
+    
+    /*
+     *  Main Menu side collapse functionality for large & medium screens.
+     */
+    var sideCollapse = jQuery('[data-toggle=collapse-side]');
+    var target1 = sideCollapse.attr('data-target-1');
+    var target2 = sideCollapse.attr('data-target-2');
+    
+    sideCollapse.click(function(event){
+        /* Check screen width (only for lg & md). */
+        if (window.innerWidth > 768) {
+            jQuery(target1).toggleClass('in');
+            jQuery(target2).toggleClass(jQuery(target2).attr('data-out-class'));
+        }
+    });
+    
+});
+</script>

@@ -1,0 +1,66 @@
+<!-- IndexTemplate -->
+
+<h1>{{title}}</h1>
+
+{{#each model as |offer|}}
+
+<!-- Offer Container -->
+<div class="col-xs-12 offer">
+    <!-- Offer Details -->
+    <div class="col-sm-9 col-no-gutters details">
+        <ul>
+            <li>
+                <span class="bold">Product: </span><span>{{offer.product}}</span>
+            </li>
+            <li>
+                <span class="bold">Until: </span><span>{{offer.until}}</span>
+            </li>
+            <li>
+                <span class="bold">Min. Bid: </span><span>{{offer.min_bid}}</span>
+            </li>
+            <li>
+                <span class="bold">Location: </span><span>{{offer.location}}</span>
+            </li>
+            <li>
+                <span class="bold">Capacity: </span><span>{{offer.capacity}}</span>
+            </li>
+            <li>
+                <span class="bold">High Bid: </span><span>{{offer.high_bid}}</span>
+            </li>
+            <li>
+                <span class="bold">Status: </span><span>{{offer.status}}</span>
+            </li>
+        </ul>
+    </div>
+    <!-- Offer Actions -->
+    <div class="col-sm-3 actions">
+        <a href="#" class="more" data-toggle="modal" data-target="#offer-{{offer.id}}-DetailsModal">See Details</a>
+    </div>
+    
+    <!-- Offer Details Modal -->
+    <div class="modal fade" id="offer-{{offer.id}}-DetailsModal" role="dialog">
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Offer Details</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <span class="bold">Product: </span><span>{{offer.product}}</span>
+                        <br/>
+                        <span class="bold">Status: </span><span>{{offer.status}}</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+
+{{/each}}
